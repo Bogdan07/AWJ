@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class PersoanaController {
   private List<Persoana> persoane = new ArrayList<Persoana>();
 
-  PersoanaController() {
+ /* PersoanaController() {
     Persoana p1 = new Persoana(1, "John");
     Persoana p2 = new Persoana(2, "Paul");
     Persoana p3 = new Persoana(3, "Paul");
@@ -25,7 +25,7 @@ public class PersoanaController {
     persoane.add(p2);
     persoane.add(p3);
   }
-
+*/
   @RequestMapping(value="/persoana", method = RequestMethod.GET)
   public List<Persoana> index() {
     return this.persoane;
