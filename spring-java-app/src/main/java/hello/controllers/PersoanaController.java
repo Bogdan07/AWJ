@@ -1,5 +1,7 @@
-package hello;
 
+package hello.controllers;
+
+import hello.models.*;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class PersoanaController {
   private List<Persoana> persoane = new ArrayList<Persoana>();
 
- /* PersoanaController() {
+  PersoanaController() {
     Persoana p1 = new Persoana(1, "John");
     Persoana p2 = new Persoana(2, "Paul");
     Persoana p3 = new Persoana(3, "Paul");
@@ -25,7 +27,7 @@ public class PersoanaController {
     persoane.add(p2);
     persoane.add(p3);
   }
-*/
+
   @RequestMapping(value="/persoana", method = RequestMethod.GET)
   public List<Persoana> index() {
     return this.persoane;
@@ -41,7 +43,7 @@ public class PersoanaController {
     return new ResponseEntity<String>(null, new HttpHeaders(), HttpStatus.NOT_FOUND);
   }
 
-  @RequestMapping(value="/persoana/{id}", method = RequestMethod.DEL)
+  @RequestMapping(value="/persoana/{id}", method = RequestMethod.DELETE)
   public ResponseEntity remove(@PathVariable("id") int id) {
     for(Persoana p : this.persoane) {
       if(p.getId() == id) {
@@ -50,5 +52,22 @@ public class PersoanaController {
       }
     }
     return new ResponseEntity<String>(null, new HttpHeaders(), HttpStatus.NOT_FOUND);
+  }
+
+  @RequestMapping(value="/persoana/{id}/{name}", method = RequestMethod.POST)
+  public ResponseEntity add(@PathVariable("id") int id, @PathVariable("name") String name) {
+    Persoana p = new Persoana(id,name);
+    this.persoane.add(p);
+    return new ResponseEntity<List<Persoana>>(this.persoane, new HttpHeaders(), HttpStatus.OK);
+  }
+
+  @RequestMapping(value="/persoana/{id}/{name}", method = RequestMethod.PUT)
+  public ResponseEntity update(@PathVariable("id") int id, @PathVariable("name") String name) {
+    for (Persoana p : this.persoane) {
+      if (p.getId() == id) {
+        p.setName(name);
+      }
+    }
+    return new ResponseEntity<List<Persoana>>(this.persoane, new HttpHeaders(), HttpStatus.OK);
   }
 }
