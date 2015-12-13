@@ -6,16 +6,721 @@
   <link rel="stylesheet" media="all" href="css/custom.css">
 </head>
 <body>
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="">AWJ Base Project</a>
+      </div>
 
-  <div class="container">
-    <div ng-controller="HomeController">
-      <h1>{{ helloWorld }}</h1>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="javascript:;">Resource 1</a></li>
+          <li><a href="javascript:;">Resource 2</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<hr/>
+
+<div class="container">
+  <div ng-controller="HomeController">
+    <h1>{{ helloWorld }}</h1>
+    <p>Writing this live into the browser...</p>
+  </div>
+</div>
+
+<hr/>
+
+<!-- /resources1 -->
+<div class="container">
+  <h1>Person</h1>
+  <h2>List all resources</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th style="width:210px;">Options</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>John</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Paul</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>George</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Edit a person</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute1">ID</label>
+          <input type="text" class="form-control" id="attribute1" placeholder="ID">
+        </div>
+        <div class="form-group">
+          <label for="attribute2">Name</label>
+          <input type="text" class="form-control" id="attribute2" placeholder="Name">
+        </div>
+        <button type="submit" class="btn btn-info">Save</button>
+      </form>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-6">
+      <h2>Add a person</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute3">ID</label>
+          <input type="text" class="form-control" id="attribute3" placeholder="ID">
+        </div>
+        <div class="form-group">
+          <label for="attribute4">Name</label>
+          <input type="text" class="form-control" id="attribute4" placeholder="Name">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
     </div>
   </div>
 
-  <script src="js/jquery-1.11.3.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/angular.min.js"></script>
-  <script src="js/app.js"></script>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Show a person</h2>
+    </div>
+    <div class="col-md-2">
+      <img src="http://lorempixel.com/200/200/technics/?id=1" class="img-thumbnail"/>
+    </div>
+    <div class="col-md-10">
+      <h1>ID 1</h1>
+      <p>Name John</p>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- /resources2-->
+<div class="container">
+  <h1>Pet</h1>
+  <h2>List all resources</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Species</th>
+      <th>Age</th>
+      <th style="width:210px;">Options</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Huskey</td>
+      <td>Dog</td>
+      <td>5</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Labrador</td>
+      <td>Dog</td>
+      <td>4</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Bulldog</td>
+      <td>Dog</td>
+      <td>3</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Edit a pet</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute5">ID</label>
+          <input type="text" class="form-control" id="attribute5" placeholder="Id">
+        </div>
+        <div class="form-group">
+          <label for="attribute6">Name</label>
+          <input type="text" class="form-control" id="attribute6" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute7">Species</label>
+          <input type="text" class="form-control" id="attribute7" placeholder="Species">
+        </div>
+        <div class="form-group">
+          <label for="attribute8">Age</label>
+          <input type="text" class="form-control" id="attribute8" placeholder="Age">
+        </div>
+        <button type="submit" class="btn btn-info">Save</button>
+      </form>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-6">
+      <h2>Add a pet</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute9">Id</label>
+          <input type="text" class="form-control" id="attribute9" placeholder="Id">
+        </div>
+        <div class="form-group">
+          <label for="attribute10">Name</label>
+          <input type="text" class="form-control" id="attribute10" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute11">Species</label>
+          <input type="text" class="form-control" id="attribute11" placeholder="Species">
+        </div>
+        <div class="form-group">
+          <label for="attribute12">Age</label>
+          <input type="text" class="form-control" id="attribute12" placeholder="Age">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Show a pet</h2>
+    </div>
+    <div class="col-md-2">
+      <img src="http://lorempixel.com/200/200/technics/?id=2" class="img-thumbnail"/>
+    </div>
+    <div class="col-md-10">
+      <h1>Id 1</h1>
+      <p>Name Huskey, Species Dog, Age 5</p>
+    </div>
+  </div>
+</div>
+<hr/>
+
+<!-- /resource 3 -->
+
+<div class="container">
+  <h1>Bar</h1>
+  <h2>List all resources</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Max Number of Customers</th>
+      <th>Drinks</th>
+      <th style="width:210px;">Options</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Quantic</td>
+      <td>Bucharest</td>
+      <td>200</td>
+      <td>Beer</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Black Helmets</td>
+      <td>Bucharest</td>
+      <td>50</td>
+      <td>Shots</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Harley Bar</td>
+      <td>Bucharest</td>
+      <td>30</td>
+      <td>Whiskey</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Metal Jack</td>
+      <td>Bucharest</td>
+      <td>30</td>
+      <td>Cocktails</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Edit a bar</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute13">ID</label>
+          <input type="text" class="form-control" id="attribute13" placeholder="Id">
+        </div>
+        <div class="form-group">
+          <label for="attribute14">Name</label>
+          <input type="text" class="form-control" id="attribute14" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute15">Location</label>
+          <input type="text" class="form-control" id="attribute15" placeholder="Location">
+        </div>
+        <div class="form-group">
+          <label for="attribute16">Drinks</label>
+          <div id="barEdit">
+          <input type="text" class="form-control" style="float:left;width: 200px;;" id="attribute16" placeholder="Id of the drink to be replaced">
+          <select class="form-control" style="float:right;width: 200px;">
+            <option value="Beer">Beer</option>
+            <option value="Whiskey">Whiskey</option>
+            <option value="Shots">Shots</option>
+            <option value="Cocktails">Cocktails</option>
+            <option value="Juices">Juices</option>
+          </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info">Save</button>
+      </form>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-6">
+      <h2>Add a bar</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute7">ID</label>
+          <input type="text" class="form-control" id="attribute17" placeholder="Id">
+        </div>
+        <div class="form-group">
+          <label for="attribute18">Name</label>
+          <input type="text" class="form-control" id="attribute18" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute19">Location</label>
+          <input type="text" class="form-control" id="attribute19" placeholder="Location">
+        </div>
+        <div class="form-group">
+          <label for="attribute20">Drinks</label>
+          <input type="text" class="form-control" id="attribute20" placeholder="Drink 1">
+          <input type="text" class="form-control" id="attribute21" placeholder="Drink 2">
+          <input type="text" class="form-control" id="attribute22" placeholder="Drink 3">
+          <input type="text" class="form-control" id="attribute23" placeholder="Drink 4">
+          <input type="text" class="form-control" id="attribute24" placeholder="Drink 5">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Show a bar</h2>
+    </div>
+    <div class="col-md-2">
+      <img src="http://lorempixel.com/200/200/technics/?id=1" class="img-thumbnail"/>
+    </div>
+    <div class="col-md-10" style="width: 400px;">
+      <h1>ID 1</h1>
+      <p style="float: left;">Name Quantic, Location Bucharest, Drinks:</p>
+      <ol style="float: right">
+        <li>Beer</li>
+        <li>Whiskey</li>
+        <li>Shots</li>
+        <li>Cocktails</li>
+        <li>Juices</li>
+      </ol>
+       <h3>Sub resource - Drinks</h3>
+       <table class="table table-bordered table-striped">
+         <tr>
+           <th>Id</th>
+           <th>Name</th>
+         </tr>
+         <tr>
+           <td>1</td>
+           <td>Beer</td>
+         </tr>
+         <tr>
+           <td>2</td>
+           <td>Whiskey</td>
+         </tr>
+         <tr>
+           <td>3</td>
+           <td>Shots</td>
+         </tr>
+         <tr>
+           <td>4</td>
+           <td>Cocktails</td>
+         </tr>
+         <tr>
+           <td>5</td>
+           <td>juices</td>
+         </tr>
+       </table>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<!-- /resources4 -->
+<div class="container">
+  <h1>Produces</h1>
+  <h2>List all resources</h2>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th style="width:210px;">Options</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Guitar</td>
+      <td>20</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Bread</td>
+      <td>60</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>SparklingWater</td>
+      <td>100</td>
+      <td>
+        <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+        </a>
+        <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Edit a produce</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute25">ID</label>
+          <input type="text" class="form-control" id="attribute25" placeholder="ID">
+        </div>
+        <div class="form-group">
+          <label for="attribute26">Name</label>
+          <input type="text" class="form-control" id="attribute26" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute27">Name</label>
+          <input type="text" class="form-control" id="attribute27" placeholder="Quantity">
+        </div>
+        <button type="submit" class="btn btn-info">Save</button>
+      </form>
+    </div>
+
+
+    <div class="col-md-3 col-md-offset-6">
+      <h2>Add a produce</h2>
+      <form action="" method="">
+        <div class="form-group">
+          <label for="attribute28">ID</label>
+          <input type="text" class="form-control" id="attribute28" placeholder="ID">
+        </div>
+        <div class="form-group">
+          <label for="attribute29">Name</label>
+          <input type="text" class="form-control" id="attribute29" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="attribute30">Name</label>
+          <input type="text" class="form-control" id="attribute30" placeholder="Quantity">
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Show a produce</h2>
+    </div>
+    <div class="col-md-2">
+      <img src="http://lorempixel.com/200/200/technics/?id=1" class="img-thumbnail"/>
+    </div>
+    <div class="col-md-10">
+      <h1>ID 1</h1>
+      <p>Name Guitar, Quantity 20</p>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+
+<div class="container">
+  <footer class="footer">
+    <p class="text-muted pull-left">AWJ Base Project &copy; 2015-2016</p>
+    <p class="text-muted pull-right">Radu Bogdan-Viorel, 332AA</p>
+  </footer>
+</div>
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
