@@ -1,11 +1,13 @@
-<!DOCTYPE html>
 <html ng-app="blog">
 <head>
   <title>My application</title>
   <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="css/custom.css">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="sweetalert/dist/sweetalert.css">
+<script src="sweetalert/dist/sweetalert.min.js"></script>
 </head>
-<body>
+<body ng-controller="HomeController">
 <div class="container">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -32,7 +34,7 @@
 <hr/>
 
 <div class="container">
-  <div ng-controller="HomeController">
+  <div>
     <h1>{{ helloWorld }}</h1>
     <p>Writing this live into the browser...</p>
   </div>
@@ -41,7 +43,7 @@
 <hr/>
 
 <!-- /resources1 -->
-<div class="container">
+<div class="container" >
   <h1>Person</h1>
   <h2>List all resources</h2>
   <table class="table table-bordered">
@@ -50,109 +52,62 @@
       <th>Name</th>
       <th style="width:210px;">Options</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>John</td>
+    <tr ng-repeat="persoana in persoane">
+		<td>{{persoana.id}}</td>
+		<td>{{persoana.name}}</td>
       <td>
-        <a href="">
-            <span class="label label-success">
+        <a href="javascript:;">
+            <span class="label label-success" ng-click="openn(persoana,'persoana')">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-primary">
+        <a href="javascript:;">
+            <span class="label label-primary" ng-click="editForm(persoana,'persoana')">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-danger">
+        <a href="javascript:;">
+            <span class="label label-danger"  ng-click="delete(persoana.id,'persoana')">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
             </span>
         </a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Paul</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>George</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
+
   </table>
 
   <div class="row">
     <div class="col-md-3">
       <h2>Edit a person</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute1">ID</label>
-          <input type="text" class="form-control" id="attribute1" placeholder="ID">
+          <input type="text" class="form-control" id="attribute1" ng-model="idEdit1" placeholder="ID" readonly>
         </div>
         <div class="form-group">
           <label for="attribute2">Name</label>
-          <input type="text" class="form-control" id="attribute2" placeholder="Name">
+          <input type="text" class="form-control" id="attribute2" ng-model="nameEdit1" placeholder="Name">
         </div>
-        <button type="submit" class="btn btn-info">Save</button>
+        <button class="btn btn-info" ng-click="edit({'id':idEdit1,'name':nameEdit1},'persoana')">Save</button>
       </form>
     </div>
 
 
     <div class="col-md-3 col-md-offset-6">
       <h2>Add a person</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute3">ID</label>
-          <input type="text" class="form-control" id="attribute3" placeholder="ID">
+          <input type="text" class="form-control" id="attribute3" ng-model="idAdd1" placeholder="ID" readonly>
         </div>
         <div class="form-group">
           <label for="attribute4">Name</label>
-          <input type="text" class="form-control" id="attribute4" placeholder="Name">
+          <input type="text" class="form-control" id="attribute4" ng-model="nameAdd1" placeholder="Name">
         </div>
-        <button type="submit" class="btn btn-success">Add</button>
+        <button class="btn btn-success" ng-click="add({'name':nameAdd1},'persoana')">Add</button>
       </form>
     </div>
   </div>
@@ -185,131 +140,80 @@
       <th>Age</th>
       <th style="width:210px;">Options</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Huskey</td>
-      <td>Dog</td>
-      <td>5</td>
+    <tr ng-repeat="pet in pets">
+      <td>{{pet.id}}</td>
+      <td>{{pet.name}}</td>
+	  <td>{{pet.species}}</td>
+	  <td>{{pet.age}}</td>
       <td>
-        <a href="">
-            <span class="label label-success">
+        <a href="javascript:;">
+            <span class="label label-success" ng-click="openn(pet,'pet')">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-primary">
+        <a href="javascript:;">
+            <span class="label label-primary" ng-click="editForm(pet,'pet')">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-danger">
+        <a href="javascript:;">
+            <span class="label label-danger" ng-click="delete(pet.id,'pet')">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
             </span>
         </a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Labrador</td>
-      <td>Dog</td>
-      <td>4</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Bulldog</td>
-      <td>Dog</td>
-      <td>3</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
+    
   </table>
 
   <div class="row">
     <div class="col-md-3">
       <h2>Edit a pet</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute5">ID</label>
-          <input type="text" class="form-control" id="attribute5" placeholder="Id">
+          <input type="text" class="form-control" id="attribute5" ng-model="idEdit2" placeholder="Id" readonly>
         </div>
         <div class="form-group">
           <label for="attribute6">Name</label>
-          <input type="text" class="form-control" id="attribute6" placeholder="Name">
+          <input type="text" class="form-control" id="attribute6" ng-model="nameEdit2" placeholder="Name">
         </div>
         <div class="form-group">
           <label for="attribute7">Species</label>
-          <input type="text" class="form-control" id="attribute7" placeholder="Species">
+          <input type="text" class="form-control" id="attribute7" ng-model="speciesEdit" placeholder="Species">
         </div>
         <div class="form-group">
           <label for="attribute8">Age</label>
-          <input type="text" class="form-control" id="attribute8" placeholder="Age">
+          <input type="text" class="form-control" id="attribute8" ng-model="ageEdit"placeholder="Age">
         </div>
-        <button type="submit" class="btn btn-info">Save</button>
+        <button class="btn btn-info" ng-click="edit({'id':idEdit2,'name':nameEdit2,'species':speciesEdit,'age':ageEdit},'pet')">Save</button>
       </form>
     </div>
 
 
     <div class="col-md-3 col-md-offset-6">
       <h2>Add a pet</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute9">Id</label>
-          <input type="text" class="form-control" id="attribute9" placeholder="Id">
+          <input type="text" class="form-control" id="attribute9" ng-model="idAdd2" placeholder="Id" readonly>
         </div>
         <div class="form-group">
           <label for="attribute10">Name</label>
-          <input type="text" class="form-control" id="attribute10" placeholder="Name">
+          <input type="text" class="form-control" id="attribute10" ng-model="nameAdd2" placeholder="Name">
         </div>
         <div class="form-group">
           <label for="attribute11">Species</label>
-          <input type="text" class="form-control" id="attribute11" placeholder="Species">
+          <input type="text" class="form-control" id="attribute11" ng-model="speciesAdd2" placeholder="Species">
         </div>
         <div class="form-group">
           <label for="attribute12">Age</label>
-          <input type="text" class="form-control" id="attribute12" placeholder="Age">
+          <input type="text" class="form-control" id="attribute12"  ng-model="ageAdd2" placeholder="Age">
         </div>
-        <button type="submit" class="btn btn-success">Add</button>
+        <button class="btn btn-success"  ng-click="add({'name':nameAdd2,'species':speciesAdd2,'age':'ageAdd2'},'pet')">Add</button>
       </form>
     </div>
   </div>
@@ -343,108 +247,27 @@
       <th>Drinks</th>
       <th style="width:210px;">Options</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Quantic</td>
-      <td>Bucharest</td>
-      <td>200</td>
-      <td>Beer</td>
+    <tr ng-repeat="bar in bars">
+	  <td>{{bar.id}}</td>
+      <td>{{bar.name}}</td>
+	  <td>{{bar.location}}</td>
+	  <td>{{bar.maxNumberCustomers}}</td>
+	  <td><ul><li ng-repeat="drink in bar.drinks">{{drink}}</li></ul></td>
       <td>
-        <a href="">
-            <span class="label label-success">
+        <a href="javascript:;">
+            <span class="label label-success" ng-click="openn(bar,'bar')">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-primary">
+        <a href="javascript:;">
+            <span class="label label-primary" ng-click="editForm(bar,'bar')">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
             </span>
         </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Black Helmets</td>
-      <td>Bucharest</td>
-      <td>50</td>
-      <td>Shots</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>Harley Bar</td>
-      <td>Bucharest</td>
-      <td>30</td>
-      <td>Whiskey</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>Metal Jack</td>
-      <td>Bucharest</td>
-      <td>30</td>
-      <td>Cocktails</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
+        <a href="javascript:;">
+            <span class="label label-danger" ng-click="delete(bar.id,'bar')">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
             </span>
@@ -456,61 +279,65 @@
   <div class="row">
     <div class="col-md-3">
       <h2>Edit a bar</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute13">ID</label>
-          <input type="text" class="form-control" id="attribute13" placeholder="Id">
+          <input type="text" class="form-control" id="attribute13" ng-model="idEdit3" placeholder="Id" readonly>
         </div>
         <div class="form-group">
           <label for="attribute14">Name</label>
-          <input type="text" class="form-control" id="attribute14" placeholder="Name">
+          <input type="text" class="form-control" id="attribute14" ng-model="nameEdit3"placeholder="Name">
         </div>
         <div class="form-group">
           <label for="attribute15">Location</label>
-          <input type="text" class="form-control" id="attribute15" placeholder="Location">
+          <input type="text" class="form-control" id="attribute15" ng-model="locationEdit" placeholder="Location">
+        </div>
+		<div class="form-group">
+          <label for="attribute15">Max Number Of Customers</label>
+          <input type="text" class="form-control" id="attribute15" ng-model="maxEdit" placeholder="Max">
         </div>
         <div class="form-group">
           <label for="attribute16">Drinks</label>
           <div id="barEdit">
-          <input type="text" class="form-control" style="float:left;width: 200px;;" id="attribute16" placeholder="Id of the drink to be replaced">
-          <select class="form-control" style="float:right;width: 200px;">
-            <option value="Beer">Beer</option>
-            <option value="Whiskey">Whiskey</option>
-            <option value="Shots">Shots</option>
-            <option value="Cocktails">Cocktails</option>
-            <option value="Juices">Juices</option>
+          <input type="text" class="form-control" style="float:left;width: 200px;;" ng-model="idDrinkEdit" id="attribute16" placeholder="Id of the drink to be replaced">
+          <select class="form-control" style="float:right;width: 200px;" ng-model="selected_drink" ng-options="drink for drink in drinks" ng-change="change();">
+            <option value="">{{bars[0].drinks[0]}}</option>
           </select>
           </div>
         </div>
-        <button type="submit" class="btn btn-info">Save</button>
+        <button class="btn btn-info"  ng-click="edit({'id':idEdit3,'name':nameEdit3,'location':locationEdit,'max':maxEdit,'drink':idDrinkEdit},'bar')">Save</button>
       </form>
     </div>
 
 
     <div class="col-md-3 col-md-offset-6">
       <h2>Add a bar</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute7">ID</label>
-          <input type="text" class="form-control" id="attribute17" placeholder="Id">
+          <input type="text" class="form-control" id="attribute17" ng-model="idAdd3" placeholder="Id" readonly>
         </div>
         <div class="form-group">
           <label for="attribute18">Name</label>
-          <input type="text" class="form-control" id="attribute18" placeholder="Name">
+          <input type="text" class="form-control" id="attribute18" ng-model="nameAdd3" placeholder="Name">
         </div>
         <div class="form-group">
           <label for="attribute19">Location</label>
-          <input type="text" class="form-control" id="attribute19" placeholder="Location">
+          <input type="text" class="form-control" id="attribute19" ng-model="locationAdd" placeholder="Location">
+        </div>
+		<div class="form-group">
+          <label for="attribute19">Max Number Customers</label>
+          <input type="text" class="form-control" id="attribute19" ng-model="maxAdd" placeholder="Max Number">
         </div>
         <div class="form-group">
           <label for="attribute20">Drinks</label>
-          <input type="text" class="form-control" id="attribute20" placeholder="Drink 1">
-          <input type="text" class="form-control" id="attribute21" placeholder="Drink 2">
-          <input type="text" class="form-control" id="attribute22" placeholder="Drink 3">
-          <input type="text" class="form-control" id="attribute23" placeholder="Drink 4">
-          <input type="text" class="form-control" id="attribute24" placeholder="Drink 5">
+          <input type="text" class="form-control" id="attribute20" ng-model="drinkBar[0]" placeholder="Drink 1">
+          <input type="text" class="form-control" id="attribute21" ng-model="drinkBar[1]" placeholder="Drink 2">
+          <input type="text" class="form-control" id="attribute22" ng-model="drinkBar[2]" placeholder="Drink 3">
+          <input type="text" class="form-control" id="attribute23" ng-model="drinkBar[3]" placeholder="Drink 4">
+          <input type="text" class="form-control" id="attribute24" ng-model="drinkBar[4]" placeholder="Drink 5">
         </div>
-        <button type="submit" class="btn btn-success">Add</button>
+        <button class="btn btn-success"  ng-click="add({'name':nameAdd3,'location':locationAdd3,'maxNumberCustomers':maxAdd,'drinks':drinkBar},'bar')">Add</button>
       </form>
     </div>
   </div>
@@ -576,120 +403,71 @@
       <th>Quantity</th>
       <th style="width:210px;">Options</th>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Guitar</td>
-      <td>20</td>
+    <tr ng-repeat="produce in produces">
+      <td>{{produce.id}}</td>
+	  <td>{{produce.name}}</td>
+	  <td>{{produce.quantity}}</td>
       <td>
-        <a href="">
-            <span class="label label-success">
+        <a href="javascript:;">
+            <span class="label label-success" ng-click="openn(produce,'produce')">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
         </a>
-        <a href="">
+        <a href="javascript:;">
             <span class="label label-primary">
               Edit
-              <span class="glyphicon glyphicon-edit"></span>
+              <span class="glyphicon glyphicon-edit" ng-click="editForm(produce,'produce')"></span>
             </span>
         </a>
-        <a href="">
+        <a href="javascript:;">
             <span class="label label-danger">
               Remove
-              <span class="glyphicon glyphicon-remove"></span>
+              <span class="glyphicon glyphicon-remove" ng-click="delete(produce.id,'produce')"></span>
             </span>
         </a>
       </td>
     </tr>
-    <tr>
-      <td>2</td>
-      <td>Bread</td>
-      <td>60</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>SparklingWater</td>
-      <td>100</td>
-      <td>
-        <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-        </a>
-        <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-        </a>
-      </td>
-    </tr>
+    
   </table>
 
   <div class="row">
     <div class="col-md-3">
       <h2>Edit a produce</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute25">ID</label>
-          <input type="text" class="form-control" id="attribute25" placeholder="ID">
+          <input type="text" class="form-control" id="attribute25" ng-model="idEdit4" placeholder="ID" readonly>
         </div>
         <div class="form-group">
           <label for="attribute26">Name</label>
-          <input type="text" class="form-control" id="attribute26" placeholder="Name">
+          <input type="text" class="form-control" id="attribute26" ng-model="nameEdit4" placeholder="Name">
         </div>
         <div class="form-group">
-          <label for="attribute27">Name</label>
-          <input type="text" class="form-control" id="attribute27" placeholder="Quantity">
+          <label for="attribute27">Cantitate</label>
+          <input type="text" class="form-control" id="attribute27" ng-model="quantityEdit" placeholder="Quantity">
         </div>
-        <button type="submit" class="btn btn-info">Save</button>
+        <button class="btn btn-info" ng-click="edit({'name':nameEdit4,'quantity':quantityEdit},'produce')">Save</button>
       </form>
     </div>
 
 
     <div class="col-md-3 col-md-offset-6">
       <h2>Add a produce</h2>
-      <form action="" method="">
+      <form>
         <div class="form-group">
           <label for="attribute28">ID</label>
-          <input type="text" class="form-control" id="attribute28" placeholder="ID">
+          <input type="text" class="form-control" id="attribute28" ng-model="idAdd4" placeholder="ID">
         </div>
         <div class="form-group">
           <label for="attribute29">Name</label>
-          <input type="text" class="form-control" id="attribute29" placeholder="Name">
+          <input type="text" class="form-control" id="attribute29" ng-model="nameAdd4" placeholder="Name">
         </div>
         <div class="form-group">
-          <label for="attribute30">Name</label>
-          <input type="text" class="form-control" id="attribute30" placeholder="Quantity">
+          <label for="attribute30">Cantitate</label>
+          <input type="text" class="form-control" id="attribute30" ng-model="quantityAdd" placeholder="Quantity">
         </div>
-        <button type="submit" class="btn btn-success">Add</button>
+        <button class="btn btn-success" ng-click="add({'name':nameAdd4,'quantity':quantityAdd},'produce')">Add</button>
       </form>
     </div>
   </div>
@@ -720,6 +498,7 @@
 
 <script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 <script src="js/angular.min.js"></script>
 <script src="js/app.js"></script>
 </body>

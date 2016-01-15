@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 import java.util.ArrayList;
 
-
+@org.springframework.web.bind.annotation.CrossOrigin
 @RestController
 public class PersoanaController {
   private List<Persoana> persoane = new ArrayList<Persoana>();
@@ -21,13 +21,13 @@ public class PersoanaController {
   PersoanaController() {
     Persoana p1 = new Persoana(1, "John");
     Persoana p2 = new Persoana(2, "Paul");
-    Persoana p3 = new Persoana(3, "Paul");
+    Persoana p3 = new Persoana(3, "George");
 
     persoane.add(p1);
     persoane.add(p2);
     persoane.add(p3);
   }
-
+	
   @RequestMapping(value="/persoana", method = RequestMethod.GET)
   public List<Persoana> index() {
     return this.persoane;
@@ -61,13 +61,14 @@ public class PersoanaController {
     return new ResponseEntity<List<Persoana>>(this.persoane, new HttpHeaders(), HttpStatus.OK);
   }
 
-  @RequestMapping(value="/persoana/{id}/{name}", method = RequestMethod.PUT)
-  public ResponseEntity update(@PathVariable("id") int id, @PathVariable("name") String name) {
+  @RequestMapping(value="/persoana/{id}", method = RequestMethod.PUT)
+  public ResponseEntity update(@PathVariable("id") int id , @RequestParam(name) String name) {
     for (Persoana p : this.persoane) {
-      if (p.getId() == id) {
+      if (id == p.getId()) {
         p.setName(name);
       }
     }
     return new ResponseEntity<List<Persoana>>(this.persoane, new HttpHeaders(), HttpStatus.OK);
   }
-}
+
+ 

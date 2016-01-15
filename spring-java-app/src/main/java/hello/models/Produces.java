@@ -4,16 +4,16 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Produces {
-    private String name;
     private int id;
+	private String name;
     private int quantity;
 
     public Produces() {
     }
 
     public Produces(int id, String name, int quantity) {
-        this.name = name;
         this.id = id;
+		this.name = name;
         this.quantity = quantity;
     }
 
